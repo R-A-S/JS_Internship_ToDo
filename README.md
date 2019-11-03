@@ -1,6 +1,6 @@
 # [JS_BAND_INTERNSHIP] Program
 
-#### TODOList
+
 To run this application, check that latest versions of Git, Node.js and npm or yarn is installed on your computer. 
 
 Available commands:
@@ -18,9 +18,8 @@ $ npm run build:prod
 $ yarn run build:prod
 
 ```
-
-# Tech task
-## Objectives
+# TODOList
+## Tech task
 - Create a todo-list application. Which includes next functionality:
     - [x] Create a todo-item with a **title**, **description**, **priority** fields and a default status - **open**;
     - [x] Edit all todo-item fields;
@@ -39,4 +38,4 @@ $ yarn run build:prod
 
 
 ---
-This application uses Local Storage to maintain the state of tasks between sessions. If there are other objects in the Local Storage with the same key, there may be failures.
+This application uses Local Storage to maintain the state of tasks between sessions.
