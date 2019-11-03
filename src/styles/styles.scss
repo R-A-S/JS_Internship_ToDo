@@ -1,5 +1,43 @@
-body {
-    color: rgb(235, 235, 238);
-    background-color: rgb(104, 104, 104);
-    font-size: 20px;
+$border: #333;
+
+$black-color: #13171a;
+$grey-bg: #dbdbdb;
+$white-bg: #f6f6f6;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
 }
+
+a,
+a:active,
+a:hover,
+a:visited {
+  color: $black-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+  display: grid;
+  grid-template-rows: 50px calc(100vh - 100px) 50px;
+  grid-template-areas: 'header' 'main' 'footer';
+  font-family: 'Roboto Mono', monospace, system-ui;
+  font-size: 14px;
+  font-variant-ligatures: none;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@import './components/header.scss';
+
+@import './components/main.scss';
+@import './components/modal.scss';
+
+@import './components/footer.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap&subset=cyrillic');

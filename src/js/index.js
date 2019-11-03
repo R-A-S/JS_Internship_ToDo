@@ -1,3 +1,2 @@
 import '../styles/styles.scss';
-
-console.log('Hello World');
+import './components/actions';

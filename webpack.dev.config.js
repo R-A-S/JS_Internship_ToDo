@@ -1,23 +1,24 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+/* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/js/index.js",
+  mode: 'development',
+  entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[hash].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js',
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, "src"),
+    contentBase: path.resolve(__dirname, 'src'),
     watchContentBase: true,
     hot: true,
     port: 9000,
-    open: true
+    open: true,
   },
   module: {
     rules: [
@@ -25,54 +26,54 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-proposal-object-rest-spread"]
-          }
-        }
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-proposal-class-properties'],
+          },
+        },
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "postcss-loader"]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
-              outputPath: "assets/img/"
-            }
-          }
-        ]
+              name: '[name].[ext]',
+              outputPath: 'assets/img/',
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              outputPath: "fonts"
-            }
-          }
-        ]
-      }
-    ]
+              outputPath: 'fonts',
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    modules: ["node_modules", path.resolve(__dirname, "src")],
-    extensions: [".js"]
+    modules: ['node_modules', path.resolve(__dirname, 'src')],
+    extensions: ['.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      inject: true
+      template: './src/index.html',
+      inject: true,
     }),
     new MiniCssExtractPlugin({
-      filename: "style.[chunkhash].css"
+      filename: 'style.[chunkhash].css',
     }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };

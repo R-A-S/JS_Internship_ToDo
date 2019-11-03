@@ -1,0 +1,13 @@
+.footer {
+  color: $black-color;
+  background: $white-bg;
+  border-top: 2px solid $border;
+  display: inline-grid;
+  grid-area: footer;
+  padding: 0 30px;
+
+  .footer__title {
+    align-items: center;
+    display: flex;
+  }
+}
