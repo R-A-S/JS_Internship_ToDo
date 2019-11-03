@@ -1,13 +1,10 @@
-/* eslint-disable no-console */
 // Components
 import Store from './store';
 
 // Render
 export default class Render {
-  //* Show tasks on page
+  // Show tasks on page
   static showTasks() {
-    console.log('→ ', 'showTasks');
-
     const tasks = Store.getTask();
     const taskList = document.getElementById('task-list');
     const tasksSearch = document.getElementById('bar__search').value;
@@ -18,7 +15,12 @@ export default class Render {
       taskList.removeChild(taskList.lastChild);
     }
 
-    tasks
+    const open = tasks.filter(task => task.status === 'open');
+    const done = tasks.filter(task => task.status === 'done');
+    const sortedByStatus = [...open, ...done];
+
+    sortedByStatus
+
       .filter(
         t =>
           t.title.toLowerCase().includes(tasksSearch.toLowerCase()) &&
@@ -28,9 +30,8 @@ export default class Render {
       .map(task => Render.domRender(task, taskList));
   }
 
-  //* DOM render
+  // DOM render
   static domRender(task, taskList) {
-    console.log('→ ', 'domRender');
     const newTask = document.createElement('div');
 
     newTask.classList.add('task');

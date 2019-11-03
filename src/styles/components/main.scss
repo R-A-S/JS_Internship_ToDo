@@ -36,13 +36,13 @@
       }
 
       .task__menu {
-        padding: 5px 0 0;
+        padding: 5px;
         display: flex;
         justify-content: space-between;
 
         .task__priority {
-          padding: 7px;
-          font-size: 0.7rem;
+          padding: 11px;
+          font-size: 0.6rem;
         }
 
         .task__priority--low {
@@ -65,14 +65,15 @@
 
         .task__option {
           position: relative;
+          padding: 10px;
 
           .task__option-btn {
             background: transparent;
             color: $black-color;
-            border: 2px solid $black-color;
+            border: 1px solid $black-color;
             border-radius: 8px;
-            font-size: 1rem;
-            padding: 4px 2px;
+            font-size: 0.8rem;
+            padding: 9px 6px;
             cursor: pointer;
           }
 
@@ -83,8 +84,8 @@
           .task__option-list {
             display: none;
             position: absolute;
-            top: 25px;
-            right: 4px;
+            top: 38px;
+            right: 17px;
             list-style: none;
             background: $white-bg;
             color: $black-color;
@@ -99,7 +100,7 @@
             &::before {
               position: absolute;
               content: '';
-              top: -11px;
+              top: -10px;
               right: 0px;
               width: 0;
               height: 0;
