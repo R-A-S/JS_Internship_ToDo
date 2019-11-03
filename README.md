@@ -39,3 +39,4 @@ $ yarn run build:prod
 
 
 ---
+This application uses Local Storage to maintain the state of tasks between sessions. If there are other objects in the Local Storage with the same key, there may be failures.
